@@ -1,0 +1,485 @@
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Live Vessel Tracker — Dolphintech Global Services</title>
+<meta name="google-site-verification" content="WKn6tdasAJxQkz3L1ZtQ4QfPZUD2_ZG01Pcv-cT7os4" />
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2MDKJJBGY8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2MDKJJBGY8');
+</script>
+<meta name="description" content="Track vessels live at all Nigerian ports — Apapa, Tin Can, Onne, Port Harcourt, Bonny, Warri, Calabar. Real-time AIS vessel tracking by Dolphintech Global Services.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1f3c;--navy2:#0d2a4e;--teal:#1a9fd4;--teal2:#1587b5;
+  --white:#fff;--offwhite:#f7f9fc;--text:#1a1a2e;--muted:#5a6a7e;--border:#e2e8f0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--offwhite)}
+
+/* NAV */
+.nav{background:#fff;box-shadow:0 2px 12px rgba(10,31,60,.08);position:sticky;top:env(safe-area-inset-top,0px);z-index:100}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left,0px));display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo img{height:44px;width:44px;border-radius:6px;object-fit:contain}
+.nav-logo-text{}
+.nav-logo-name{font-size:15px;font-weight:700;color:var(--navy);line-height:1.2}
+.nav-logo-sub{font-size:9.5px;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase}
+.nav-logo-rc{font-size:9px;color:var(--muted)}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;font-size:14px;font-weight:500;color:var(--text);transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-links a.active{color:var(--teal);font-weight:600}
+.nav-cta{background:var(--teal);color:#fff;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--teal2)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200}
+.mobile-menu.open{display:block}
+.mobile-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:#ffffff;padding:28px 24px;display:flex;flex-direction:column;gap:4px;box-shadow:-4px 0 20px rgba(0,0,0,0.15)}
+.mobile-close{align-self:flex-end;background:none;border:none;font-size:22px;cursor:pointer;color:var(--navy);margin-bottom:12px}
+.mobile-panel a{display:block;padding:14px 0;border-bottom:1px solid var(--border);text-decoration:none;font-size:16px;font-weight:600;color:#0a1f3c}
+.mobile-panel a.active{color:var(--teal)}
+.mobile-cta-btn{margin-top:16px;background:var(--teal);color:#fff;border:none;border-radius:8px;padding:14px;font-size:15px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;display:block}
+
+/* PAGE HEADER */
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#0d3a6e 100%);padding:48px max(16px,env(safe-area-inset-left,0px));text-align:center;color:#fff}
+.page-hero h1{font-size:clamp(24px,4vw,38px);font-weight:800;margin-bottom:12px}
+.page-hero p{font-size:16px;color:rgba(255,255,255,.75);max-width:600px;margin:0 auto 24px}
+.port-quick{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px}
+.port-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none}
+.port-btn:hover,.port-btn.active{background:var(--teal);border-color:var(--teal)}
+
+/* SEARCH BAR */
+.search-section{background:#fff;border-bottom:1px solid var(--border);padding:20px max(16px,env(safe-area-inset-left,0px))}
+.search-inner{max-width:1200px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.search-box{flex:1;min-width:200px;display:flex;gap:0;border:2px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s}
+.search-box:focus-within{border-color:var(--teal)}
+.search-box input{flex:1;padding:11px 16px;border:none;outline:none;font-family:inherit;font-size:14px;color:var(--text)}
+.search-box button{background:var(--teal);color:#fff;border:none;padding:0 20px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+.search-box button:hover{background:var(--teal2)}
+.search-hint{font-size:12px;color:var(--muted);width:100%}
+
+/* MAP SECTION */
+.map-section{max-width:1200px;margin:24px auto;padding:0 max(16px,env(safe-area-inset-left,0px))}
+.map-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.map-tab{padding:8px 18px;border-radius:8px;border:1.5px solid var(--border);background:#fff;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s}
+.map-tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.map-tab:hover:not(.active){border-color:var(--teal);color:var(--teal)}
+.map-container{border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(10,31,60,.12);border:1px solid var(--border);background:#fff}
+.map-frame{width:100%;height:520px;border:none;display:block}
+.map-credit{background:#fff;padding:10px 16px;font-size:11px;color:var(--muted);border-top:1px solid var(--border);display:flex;align-items:center;gap:6px}
+.map-credit a{color:var(--teal);text-decoration:none}
+
+/* PORT CARDS */
+.ports-section{max-width:1200px;margin:32px auto;padding:0 max(16px,env(safe-area-inset-left,0px))}
+.section-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.section-sub{font-size:14px;color:var(--muted);margin-bottom:20px}
+.ports-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:16px}
+.port-card{background:#fff;border-radius:12px;border:1.5px solid var(--border);padding:20px;cursor:pointer;transition:all .2s;text-decoration:none;display:block}
+.port-card:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(26,159,212,.15);transform:translateY(-2px)}
+.port-card-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.port-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--navy),var(--teal));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.port-card-name{font-size:15px;font-weight:700;color:var(--navy)}
+.port-card-state{font-size:12px;color:var(--muted)}
+.port-card-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.port-card-link{font-size:13px;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:4px}
+
+/* TIPS */
+.tips-section{background:var(--navy);color:#fff;padding:40px max(16px,env(safe-area-inset-left,0px));margin-top:40px}
+.tips-inner{max-width:1200px;margin:0 auto}
+.tips-title{font-size:20px;font-weight:700;margin-bottom:20px}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:20px}
+.tip-item{display:flex;gap:14px;align-items:flex-start}
+.tip-icon{font-size:24px;flex-shrink:0;margin-top:2px}
+.tip-text h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.tip-text p{font-size:13px;color:rgba(255,255,255,.65);line-height:1.6}
+
+/* CTA */
+.cta-section{background:var(--offwhite);padding:48px max(16px,env(safe-area-inset-left,0px));text-align:center}
+.cta-inner{max-width:600px;margin:0 auto}
+.cta-inner h2{font-size:26px;font-weight:800;color:var(--navy);margin-bottom:12px}
+.cta-inner p{font-size:15px;color:var(--muted);margin-bottom:24px;line-height:1.7}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--teal);color:#fff;padding:13px 28px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;transition:background .2s}
+.btn-primary:hover{background:var(--teal2)}
+.btn-outline{border:2px solid var(--navy);color:var(--navy);padding:11px 28px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-outline:hover{background:var(--navy);color:#fff}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.75);padding:48px max(16px,env(safe-area-inset-left,0px)) 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;padding-bottom:40px}
+.footer-logo-name{font-size:16px;font-weight:700;color:#fff;margin-bottom:4px}
+.footer-logo-sub{font-size:11px;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.footer-brand p{font-size:13.5px;line-height:1.7;margin-bottom:16px}
+.footer-contact a{display:block;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;margin-bottom:6px}
+.footer-contact a:hover{color:var(--teal)}
+footer h4{font-size:12px;font-weight:700;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:8px}
+.footer-links a{font-size:13.5px;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--teal)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:20px 0;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:8px}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:90px;right:max(24px,env(safe-area-inset-right,0px));z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;box-shadow:0 4px 16px rgba(37,211,102,.45);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s}
+.wa-float:hover{transform:scale(1.1)}
+
+/* COOKIE */
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:var(--navy);color:#fff;padding:14px max(20px,env(safe-area-inset-left,0px));display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:300;font-size:13px;flex-wrap:wrap}
+.cookie-accept{background:var(--teal);color:#fff;border:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer}
+
+@media screen and (max-width:900px){
+  .nav-links{display:none!important}
+  .nav-cta{display:none!important}
+  .hamburger{display:flex!important}
+}
+@media screen and (max-width:600px){
+  .footer-grid{grid-template-columns:1fr!important}
+  .footer-bottom{flex-direction:column!important;text-align:center!important}
+  .map-frame{height:380px}
+  .search-inner{flex-direction:column}
+  .search-box{width:100%}
+}
+</style>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <div style="background:#fff;padding:2px;border-radius:6px;"><img src="img/logo.jpg" alt="Dolphintech Logo" style="height:44px;width:44px;border-radius:6px;object-fit:contain"></div>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name">Dolphintech Global Services</div>
+        <div class="nav-logo-sub">Ship & Port Agency · Nigeria</div>
+        <div class="nav-logo-rc">RC: 711 0608</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="tracker.html" class="active">Vessel Tracker</a></li>
+      <li><a href="marketplace.html">Marketplace</a></li>
+      <li><a href="ports.html">Nigerian Ports</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="contact.html">📋 Request Services</a>
+    <div class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mob" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mobile-panel">
+    <button class="mobile-close" onclick="document.getElementById('mob').classList.remove('open')">✕</button>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="tracker.html" class="active">Vessel Tracker</a>
+    <a href="marketplace.html">Vessel Marketplace</a>
+    <a href="ports.html">Nigerian Ports</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a class="mobile-cta-btn" href="contact.html">📋 Request Agency Services</a>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <h1>⚓ Live Vessel Tracker</h1>
+  <p>Track any vessel in real time at all Nigerian ports using live AIS data. Search by vessel name, IMO number or browse by port.</p>
+  <div class="port-quick">
+    <a class="port-btn active" href="#" onclick="showPort('nigeria');return false">🇳🇬 All Nigerian Ports</a>
+    <a class="port-btn" href="#" onclick="showPort('apapa');return false">Apapa</a>
+    <a class="port-btn" href="#" onclick="showPort('tincan');return false">Tin Can</a>
+    <a class="port-btn" href="#" onclick="showPort('onne');return false">Onne</a>
+    <a class="port-btn" href="#" onclick="showPort('phc');return false">Port Harcourt</a>
+    <a class="port-btn" href="#" onclick="showPort('warri');return false">Warri</a>
+    <a class="port-btn" href="#" onclick="showPort('calabar');return false">Calabar</a>
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div class="search-section">
+  <div class="search-inner">
+    <div class="search-box">
+      <input type="text" id="vesselSearch" placeholder="Search vessel name, IMO number or MMSI..." />
+      <button onclick="searchVessel()">🔍 Track</button>
+    </div>
+    <div class="search-hint">💡 Example: search "VLCC Nigeria" or IMO "9876543" — powered by MarineTraffic live AIS data</div>
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="map-section">
+  <div class="map-tabs">
+    <button class="map-tab active" onclick="setMapType('satellite',this)">🛰️ Satellite</button>
+    <button class="map-tab" onclick="setMapType('classic',this)">🗺️ Classic</button>
+    <button class="map-tab" onclick="setMapType('density',this)">📊 Traffic Density</button>
+  </div>
+  <div class="map-container">
+    <iframe id="mapFrame" class="map-frame"
+      src="https://www.marinetraffic.com/en/ais/embed/zoom:8/centery:4.8/centerx:4.5/maptype:4/shownames:true/mmsi:0/shipid:0/fleet:/fleet_id:/vtypes:/showmenu:/remember:false"
+      allowfullscreen loading="lazy" title="Live Vessel Tracker — Nigerian Ports">
+    </iframe>
+    <div class="map-credit">
+      🛰️ Live AIS data powered by
+      <a href="https://www.marinetraffic.com" target="_blank" rel="noopener">MarineTraffic.com</a>
+      &nbsp;·&nbsp; Data updates every few minutes &nbsp;·&nbsp;
+      <a href="https://www.vesseltracker.com" target="_blank" rel="noopener">VesselTracker</a>
+    </div>
+  </div>
+</div>
+
+<!-- PORT CARDS -->
+<div class="ports-section">
+  <div class="section-title">Nigerian Ports — Quick Track</div>
+  <div class="section-sub">Click any port to view vessels currently in that area</div>
+  <div class="ports-grid">
+    <a class="port-card" href="#" onclick="showPort('apapa');return false">
+      <div class="port-card-header">
+        <div class="port-icon">⚓</div>
+        <div><div class="port-card-name">Apapa Port</div><div class="port-card-state">Lagos State</div></div>
+      </div>
+      <div class="port-card-desc">Nigeria's busiest port handling containers, general cargo and bulk vessels. Home to the NPA headquarters.</div>
+      <div class="port-card-link">View live vessels →</div>
+    </a>
+    <a class="port-card" href="#" onclick="showPort('tincan');return false">
+      <div class="port-card-header">
+        <div class="port-icon">🚢</div>
+        <div><div class="port-card-name">Tin Can Island Port</div><div class="port-card-state">Lagos State</div></div>
+      </div>
+      <div class="port-card-desc">Major container terminal and RoRo facility adjacent to Apapa, handling vehicles and project cargo.</div>
+      <div class="port-card-link">View live vessels →</div>
+    </a>
+    <a class="port-card" href="#" onclick="showPort('onne');return false">
+      <div class="port-card-header">
+        <div class="port-icon">🛢️</div>
+        <div><div class="port-card-name">Onne Port</div><div class="port-card-state">Rivers State</div></div>
+      </div>
+      <div class="port-card-desc">Nigeria's premier oil & gas free zone port, serving upstream and downstream energy sector operations.</div>
+      <div class="port-card-link">View live vessels →</div>
+    </a>
+    <a class="port-card" href="#" onclick="showPort('phc');return false">
+      <div class="port-card-header">
+        <div class="port-icon">🏭</div>
+        <div><div class="port-card-name">Port Harcourt Port</div><div class="port-card-state">Rivers State</div></div>
+      </div>
+      <div class="port-card-desc">Gateway to Nigeria's oil-rich south-south region, handling petroleum products and general cargo.</div>
+      <div class="port-card-link">View live vessels →</div>
+    </a>
+    <a class="port-card" href="#" onclick="showPort('warri');return false">
+      <div class="port-card-header">
+        <div class="port-icon">⛽</div>
+        <div><div class="port-card-name">Warri Port</div><div class="port-card-state">Delta State</div></div>
+      </div>
+      <div class="port-card-desc">Strategic port in the Niger Delta serving petroleum, agricultural and general cargo trade.</div>
+      <div class="port-card-link">View live vessels →</div>
+    </a>
+    <a class="port-card" href="#" onclick="showPort('calabar');return false">
+      <div class="port-card-header">
+        <div class="port-icon">🌊</div>
+        <div><div class="port-card-name">Calabar Port</div><div class="port-card-state">Cross River State</div></div>
+      </div>
+      <div class="port-card-desc">Deep-water port and free trade zone serving south-eastern Nigeria and neighbouring Cameroon.</div>
+      <div class="port-card-link">View live vessels →</div>
+    </a>
+    <a class="port-card" href="#" onclick="showPort('bonny');return false">
+      <div class="port-card-header">
+        <div class="port-icon">🔥</div>
+        <div><div class="port-card-name">Bonny Terminal</div><div class="port-card-state">Rivers State</div></div>
+      </div>
+      <div class="port-card-desc">Nigeria LNG export terminal and crude oil loading point. One of Africa's busiest energy terminals.</div>
+      <div class="port-card-link">View live vessels →</div>
+    </a>
+    <a class="port-card" href="#" onclick="showPort('offshore');return false">
+      <div class="port-card-header">
+        <div class="port-icon">🛳️</div>
+        <div><div class="port-card-name">Offshore / STS Zone</div><div class="port-card-state">Gulf of Guinea</div></div>
+      </div>
+      <div class="port-card-desc">Ship-to-Ship transfer zone in the Gulf of Guinea. Dolphintech provides full STS coordination services.</div>
+      <div class="port-card-link">View live vessels →</div>
+    </a>
+  </div>
+</div>
+
+<!-- TIPS -->
+<div class="tips-section">
+  <div class="tips-inner">
+    <div class="tips-title">How to Use the Vessel Tracker</div>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <div class="tip-icon">🔍</div>
+        <div class="tip-text">
+          <h4>Search by Name or IMO</h4>
+          <p>Enter the vessel name, IMO number or MMSI number in the search bar above to track any specific ship worldwide.</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🗺️</div>
+        <div class="tip-text">
+          <h4>Browse the Live Map</h4>
+          <p>Zoom in on any Nigerian port to see all vessels currently at anchor, berthed or underway. Click any vessel icon for details.</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">⚓</div>
+        <div class="tip-text">
+          <h4>Quick Port View</h4>
+          <p>Click any port button at the top or the port cards below to instantly jump the map to that port and see all traffic.</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">📞</div>
+        <div class="tip-text">
+          <h4>Need Ship Agency?</h4>
+          <p>Spotted your vessel? Contact Dolphintech for full port agency services at any Nigerian port. Available 24/7.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <h2>Need a Ship Agent at Any Nigerian Port?</h2>
+    <p>Dolphintech Global Services is NPA Licensed and NIMASA Registered. We provide comprehensive ship agency, STS operations and petroleum brokerage services across all Nigerian ports — available 24/7.</p>
+    <div class="cta-btns">
+      <a class="btn-primary" href="contact.html">📋 Request Agency Services</a>
+      <a class="btn-outline" href="services.html">Our Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-name">Dolphintech Global Services Limited</div>
+      <div class="footer-logo-sub">Ship & Port Agency · Nigeria</div>
+      <p>NPA Licensed, NIMASA Registered ship agent providing comprehensive maritime services across all Nigerian ports.</p>
+      <div class="footer-contact">
+        <a href="tel:+2347038855489">📞 +234 703 885 5489</a>
+        <a href="mailto:info@dolphintechltd.com.ng">✉️ info@dolphintechltd.com.ng</a>
+        <a href="#">📍 1 Commercial Road, Eleganza Plaza, Apapa, Lagos</a>
+      </div>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li><a href="services.html">Ship Agency</a></li>
+        <li><a href="services.html">STS Operations</a></li>
+        <li><a href="services.html">Petroleum Brokerage</a></li>
+        <li><a href="services.html">Vessel Chartering</a></li>
+        <li><a href="services.html">Freight Clearing</a></li>
+        <li><a href="services.html">Marine Supply</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="marketplace.html">Vessel Marketplace</a></li>
+        <li><a href="tracker.html">Vessel Tracker</a></li>
+        <li><a href="ports.html">Nigerian Ports</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Credentials</h4>
+      <ul class="footer-links">
+        <li><a href="#">NPA Licensed</a></li>
+        <li><a href="#">NIMASA Registered</a></li>
+        <li><a href="#">DPR Licensed</a></li>
+        <li><a href="#">CAC Incorporated</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Dolphintech Global Services Limited. All rights reserved.</span>
+    <span>1 Commercial Road, Eleganza Plaza, Apapa, Lagos</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/2347038855489" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<div class="cookie-bar" id="cookieBar">
+  <span>🍪 We use cookies to improve your experience. <a href="privacy.html" style="color:var(--teal)">Learn more</a></span>
+  <button class="cookie-accept" onclick="document.getElementById('cookieBar').style.display='none';try{localStorage.setItem('cookieOk','1')}catch(e){}">Accept</button>
+</div>
+<script>try{if(localStorage.getItem('cookieOk'))document.getElementById('cookieBar').style.display='none'}catch(e){}</script>
+
+<script>
+// Port coordinates [lat, lon, zoom]
+const ports = {
+  nigeria:  [4.8, 4.5, 8],
+  apapa:    [6.448, 3.364, 13],
+  tincan:   [6.437, 3.321, 13],
+  onne:     [4.713, 7.168, 12],
+  phc:      [4.775, 7.013, 12],
+  bonny:    [4.441, 7.152, 12],
+  warri:    [5.517, 5.750, 12],
+  calabar:  [4.958, 8.325, 12],
+  sapele:   [5.893, 5.680, 12],
+  offshore: [3.5,   5.0,   9]
+};
+
+const mapTypes = { satellite: 4, classic: 1, density: 3 };
+let currentMapType = 4;
+let currentPort = 'nigeria';
+
+function buildSrc(lat, lon, zoom, maptype) {
+  return `https://www.marinetraffic.com/en/ais/embed/zoom:${zoom}/centery:${lat}/centerx:${lon}/maptype:${maptype}/shownames:true/mmsi:0/shipid:0/fleet:/fleet_id:/vtypes:/showmenu:/remember:false`;
+}
+
+function showPort(portKey) {
+  currentPort = portKey;
+  const [lat, lon, zoom] = ports[portKey] || ports.nigeria;
+  document.getElementById('mapFrame').src = buildSrc(lat, lon, zoom, currentMapType);
+  // Update active port buttons
+  document.querySelectorAll('.port-btn').forEach(b => b.classList.remove('active'));
+  event && event.target && event.target.classList.add('active');
+  document.getElementById('mapFrame').scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+function setMapType(type, btn) {
+  currentMapType = mapTypes[type] || 4;
+  document.querySelectorAll('.map-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const [lat, lon, zoom] = ports[currentPort] || ports.nigeria;
+  document.getElementById('mapFrame').src = buildSrc(lat, lon, zoom, currentMapType);
+}
+
+function searchVessel() {
+  const q = document.getElementById('vesselSearch').value.trim();
+  if (!q) return;
+  // Open MarineTraffic search in new tab
+  const url = `https://www.marinetraffic.com/en/ais/index/search/all/keyword:${encodeURIComponent(q)}`;
+  window.open(url, '_blank', 'noopener');
+}
+
+document.getElementById('vesselSearch').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') searchVessel();
+});
+</script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6aef869b65044f3c3b5cfb3b/1k6rqbkr2';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
